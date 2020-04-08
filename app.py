@@ -11,4 +11,4 @@ class HelloWorld(Resource):
 api.add_resource(HelloWorld, '/')
 
 if __name__ == '__main__':
-    app.run(port=80)
+    app.run()

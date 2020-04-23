@@ -35,6 +35,7 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 
 app = Flask(__name__)
+app.secret_key = 'RATIO_2020_SECRET_KEY'
 
 
 @app.route('/api/students', methods=['GET'])

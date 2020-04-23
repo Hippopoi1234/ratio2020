@@ -1,2 +1,3 @@
 Flask>=1.1.2
 sqlalchemy>=1.3.13
+sqlalchemy_serializer>=1.3.3

@@ -3,9 +3,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import SingletonThreadPool
 from flask import Flask, jsonify, request
 
-engine = create_engine('sqlite:///users_result.sqlite', echo=False)
+engine = create_engine('sqlite:///users_result.sqlite', echo=False, poolclass=SingletonThreadPool)
 Base = declarative_base()
 
 

@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import SingletonThreadPool
 from flask import Flask, jsonify, request
 
-engine = create_engine('sqlite:///users_result.sqlite', echo=False, poolclass=SingletonThreadPool)
+engine = create_engine('sqlite:///users_result.sqlite', echo=True)
 Base = declarative_base()
 
 
@@ -42,8 +42,6 @@ app.secret_key = 'RATIO_2020_SECRET_KEY'
 @app.route('/api/students', methods=['GET'])
 def get_students():
     session = Session()
-    students = session.query(Student).all()
-    students = session.query(Student).all()
     students = session.query(Student).all()
     return jsonify({'students': [student.to_dict() for student in students]})
 

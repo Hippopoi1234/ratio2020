@@ -3,10 +3,16 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import SingletonThreadPool
 from flask import Flask, jsonify, request
 
-engine = create_engine('sqlite:///users_result.sqlite', echo=True)
+database_uri = 'postgresql://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
+    dbuser='MGrigoriev@ratio2020',
+    dbpass='afHY3kMMVNnx9EQ',
+    dbhost='ratio2020.postgres.database.azure.com',
+    dbname='users_result'
+)
+
+engine = create_engine(database_uri, echo=False)
 Base = declarative_base()
 
 

@@ -43,6 +43,8 @@ app.secret_key = 'RATIO_2020_SECRET_KEY'
 def get_students():
     session = Session()
     students = session.query(Student).all()
+    students = session.query(Student).all()
+    students = session.query(Student).all()
     return jsonify({'students': [student.to_dict() for student in students]})
 
 

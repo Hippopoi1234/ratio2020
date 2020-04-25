@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API</title>
+</head>
+<body>
+<h4>Методы <span lang="EN-US">API</span></h4>
+<h5><span lang="EN-US">'/api/students' - ['GET']</span></h5>
+<p>Данный метод возвращает
+    информацию об учениках и набранных ими баллах в виде <span lang="EN-US">JSON</span>-объекта. Не требует передачи
+    параметров.</p>
+<p>Пример возвращаемого
+    результата:</p>
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"students"</span>: <span style="">[</span>
+        <span style="">{</span>
+            <span style="color: #933;">"ID"</span>: <span style="">1</span>,
+            <span style="color: #933;">"Name"</span>: <span style="color: #933;">"Bob"</span>,
+            <span style="color: #933;">"Math"</span>: <span style="">80</span>,
+            <span style="color: #933;">"Rus"</span>: <span style="">50</span>
+        <span style="">}</span>,
+        <span style="">{</span>
+            <span style="color: #933;">"ID"</span>: <span style="">2</span>,
+            <span style="color: #933;">"Name"</span>: <span style="color: #933;">"Mark"</span>,
+            <span style="color: #933;">"Math"</span>: <span style="">60</span>,
+            <span style="color: #933;">"Rus"</span>: <span style="">70</span>
+        <span style="">}</span>,
+        <span style="">{</span>
+            <span style="color: #933;">"ID"</span>: <span style="">3</span>,
+            <span style="color: #933;">"Name"</span>: <span style="color: #933;">"Anna"</span>,
+            <span style="color: #933;">"Math"</span>: <span style="">80</span>,
+            <span style="color: #933;">"Rus"</span>: <span style="">60</span>
+        <span style="">}</span>
+    <span style="">]</span>
+<span style="">}</span></pre><p>Для каждого ученика
+    определен следующий набор атрибутов:</p>
+<p>
+</p>
+<ul>
+    <li>'<span lang="EN-US">ID</span>' – идентификатор ученика;</li>
+    <li>'<span lang="EN-US">Name</span>' – имя ученика;</li>
+    <li>'<span lang="EN-US">Math</span>' – баллы ученика по математике;</li>
+    <li>'<span lang="EN-US">Rus</span>' – баллы ученика по русскому языку.</li>
+</ul>
+<br>
+<h5><span lang="EN-US">'/api/students/&lt;int:ID&gt;'
+            - ['GET']</span></h5>
+<p>Данный метод возвращает по
+    <span lang="EN-US">ID</span>
+    информацию об ученике и набранных им баллах в виде <span lang="EN-US">JSON</span>-объекта. Передается в <span lang="EN-US">URL</span><span lang="EN-US"> </span>один
+    параметр <span lang="EN-US">ID</span>
+    – идентификатор ученика. Параметр <span lang="EN-US">ID</span><span lang="EN-US"> </span>целого типа.</p>
+<p>Пример возвращаемого <span lang="EN-US">JSON</span>-объекта:</p>
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"student"</span>: <span style="">{</span>
+        <span style="color: #933;">"ID"</span>: <span style="">1</span>,
+        <span style="color: #933;">"Name"</span>: <span style="color: #933;">"Bob"</span>,
+        <span style="color: #933;">"Math"</span>: <span style="">80</span>,
+        <span style="color: #933;">"Rus"</span>: <span style="">50</span>
+    <span style="">}</span>
+<span style="">}</span></pre>
+<p>Для каждого ученика
+    определен следующий набор атрибутов:</p>
+<ul>
+    <li>'<span lang="EN-US">ID</span>' – идентификатор ученика;</li>
+    <li>'<span lang="EN-US">Name</span>' – имя ученика;</li>
+    <li>'<span lang="EN-US">Math</span>' – баллы ученика по математике;</li>
+    <li>'<span lang="EN-US">Rus</span>' – баллы ученика по русскому языку.</li>
+</ul>
+<p>Метод может вернуть в случае если пользователя с таким <span lang="EN-US">ID</span><span lang="EN-US"> </span>не существует следующий <span lang="EN-US">JSON</span>-объект:</p>
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Not found"</span>
+<span style="">}</span></pre>
+<br>
+
+<h5><span lang="EN-US">'/api/users' - ['POST']</span></h5>
+<p>Данный метод передает
+    информацию о выполнении задания. В запросе необходимо отправить <span lang="EN-US">JSON</span>-объект с вашей
+    фамилией, именем и
+    ответами на задания.</p>
+<p>Пример отправляемого <span lang="EN-US">JSON</span>-объекта:</p>
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"Name"</span>: <span style="color: #933;">"Ivan"</span>,
+    <span style="color: #933;">"Surname"</span>: <span style="color: #933;">"Petrov"</span>,
+    <span style="color: #933;">"Key1"</span>: <span style="">100</span>,
+    <span style="color: #933;">"Key2"</span>: <span style="">100</span>,
+    <span style="color: #933;">"Key3"</span>: <span style="">100</span>
+<span style="">}</span></pre>
+<p>Значения атрибутов:</p>
+<ul>
+    <li><span lang="EN-US">'Name'</span>
+        – Ваше имя;</li>
+    <li><span lang="EN-US">'Surname'</span>
+        – Ваша фамилия;</li>
+    <li>'<span lang="EN-US">Key</span>1' – Баллы по математике ученика с <span lang="EN-US">ID</span>
+        = 7;
+    </li>
+    <li>'<span lang="EN-US">Key</span>2' – Наибольшая сумма баллов по русскому языку и
+        математике;</li>
+    <li>'<span lang="EN-US">Key</span>3' – Средний балл по русскому языку (только целая
+        часть числа);</li>
+</ul>
+<p>Атрибуты '<span lang="EN-US">Key</span>1', '<span lang="EN-US">Key</span>2', '<span lang="EN-US">Key</span>3' не
+    являются обязательными в запросе,
+    но правильные отправленные их значения, добавляют вам дополнительные баллы.</p>
+<p>При правильном выполнении
+    запроса вы получите <span lang="EN-US">JSON</span>-объект:</p>
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"success"</span>: <span style="color: #933;">"OK"</span>,
+    <span style="color: #933;">"result"</span>: <span style="">3</span>
+<span style="">}</span></pre><p>В нем атрибут 'result'
+    показывает сколько из атрибутов '<span lang="EN-US">Key</span>1',
+    '<span lang="EN-US">Key</span>2',
+    '<span lang="EN-US">Key</span>3'
+    заполнено верными данными.</p>
+<p>Возможен возврат <span lang="EN-US">JSON</span>-объекта со следующие ошибками:</p>
+<ul>
+<li>не передан в запрос JSON-объект:
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Empty request"</span>
+<span style="">}</span></pre>
+</li>
+<li>не переданы все обязательные параметры:
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Bad request"</span>
+<span style="">}</span></pre></li>
+<li>неверный тип атрибута с
+ключом '<span lang="EN-US">Name</span>':
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Name not str"</span>
+<span style="">}</span></pre></li>
+<li>неверный тип атрибута с
+ключом 'Surname':
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Surname not str"</span>
+<span style="">}</span></pre></li>
+<li>неверный тип атрибута с
+ключом '<span lang="EN-US">Key</span>1':
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Key1 not int"</span>
+<span style="">}</span></pre></li>
+<li>неверный тип атрибута с
+ключом '<span lang="EN-US">Key2</span>':
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Key2 not int"</span>
+<span style="">}</span></pre></li>
+<li>неверный тип атрибута с
+ключом '<span lang="EN-US">Key3</span>':
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>
+    <span style="color: #933;">"error"</span>: <span style="color: #933;">"Key3 not int"</span>
+<span style="">}</span></pre></li>
+</ul>
+</body>
+</html>

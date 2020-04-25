@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 database_uri = 'postgresql://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
     dbuser='MGrigoriev@ratio2020',
@@ -43,6 +43,21 @@ Session = sessionmaker(bind=engine)
 
 app = Flask(__name__)
 app.secret_key = 'RATIO_2020_SECRET_KEY'
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/api')
+def api():
+    return render_template('api.html')
+
+
+@app.route('/api/')
+def api_slash():
+    return render_template('api.html')
 
 
 @app.route('/api/students', methods=['GET'])

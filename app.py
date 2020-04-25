@@ -73,11 +73,13 @@ def post_student():
         student = session.query(Student).filter(Student.ID == 7).first()
         if student and student.Math == request.json['Key1']:
             result += 1
+        print('Checkpoint 1')
     if 'Key2' in request.json or 'Key3' in request.json:
         rus_list = []
         math_list = []
         sum_list = []
         students = session.query(Student).all()
+        print('Checkpoint 2')
         for student in students:
             rus_list.append(student.Rus)
             math_list.append(student.Math)

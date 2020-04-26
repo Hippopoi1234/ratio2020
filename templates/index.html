@@ -71,5 +71,22 @@
     <p></p>
     <p>Каждый ответ дает дополнительный балл.</p>
 </ol>
-</body>
+<p>Серверное приложение, предоставляет несколько методов через
+    API с результатами в формате JSON. Приложение развернуто в сети Интернет по
+    следующему адресу:</p>
+<p><a href="https://ratio2020.azurewebsites.net/api/" target="_blank"><span lang="EN-US">https://ratio2020.azurewebsites.net</span>/api/</a></p>
+<h5>Методы построения запроса к серверному приложению</h5>
+<p>HTTP-метод является указателем на действие, которое следует произвести.</p>
+<p><b>GET</b>-запрос на сервер вернет вам набор запрашиваемых данных, не изменяя никакой информации
+    на сервере.</p>
+<p><b>POST</b>-запрос
+    на сервер позволит создать новую запись на сервере для дальнейшего
+    использования.</p>
+<p>Любой запрос должен состоять из пути к таблице,
+    с которой предстоит выполнить какие-либо действия:</p>
+<pre class="properties" style="font-family:monospace;"><span style="">{</span>HTTP_Метод<span style="">}</span> http://<span style="">{</span>ссылка_к_серверу<span style="">}</span>/api/<span style="">{</span>таблица<span style="">}</span>/<span style="">{</span>не_обязательный_параметр<span style="">}</span></pre>
+<p>Например, GET запрос представленный ниже
+    вернет информацию об ученике с номером 1</p>
+<pre class="properties" style="font-family:monospace;"><span lang="EN-US">GET&nbsp;</span><a href="https://ratio2020.azurewebsites.net/api/students/1" target="_blank"><span lang="EN-US">https://ratio2020.azurewebsites.net/api/students/1</span></a><span lang="EN-US"></span></pre>
+<br></body>
 </html>
